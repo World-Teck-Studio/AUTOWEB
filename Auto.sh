@@ -157,8 +157,7 @@ echo "Installation de PHPMyAdmin »"
 sleep "4"
 clear
 
-sudo apt install phpmyadmin -y && sudo phpenmod mysqli && sudo /etc/init.d/apache2 restart
-
+sudo apt install phpmyadmin -y && sudo phpenmod mysqli && sudo nano /etc/apache2/apache2.conf &&sudo /etc/init.d/apache2 restart  && sudo ln -s /usr/share/phpmyadmin /var/www/html
 
 
 confirm()
