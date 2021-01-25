@@ -175,7 +175,7 @@ confirm()
     esac
 }
 
-if confirm "Pour vérifier le bon fonctionnement de PHPMyAdmin, en local ce sera « http://127.0.0.1/phpmyadmin"; then
+if confirm "Pour vérifier le bon fonctionnement « http://VOTRE IP DU RASPBERRY/phpmyadmin"; then
 
 echo "TERMINER"
 sleep "4"
@@ -185,7 +185,7 @@ clear
 
 else
 
-echo "ERRORR"
+echo "Vous avez un probléme. RDV sur https://www.youtube.com/    sur la chaine World-teck studio pour resoudre votre probléme"
 
 
 fi
@@ -195,6 +195,7 @@ fi
 
 else
 
-echo "ERROR"
+echo "Vous avez un probléme. RDV sur https://www.youtube.com/    sur la chaine World-teck studio pour resoudre votre probléme"
+
 
 fi
