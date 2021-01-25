@@ -144,7 +144,7 @@ clear
 echo "DROP USER 'root'@'localhost'; »"
 echo "CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';»"
 echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; »"
-
+echo "------------------------------------------------------------------- »"
 sudo mysql --user=root
 
 clear
