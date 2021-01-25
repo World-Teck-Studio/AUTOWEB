@@ -82,9 +82,9 @@ confirm()
     esac
 }
 
-if confirm "ATTENTION : Avez-vous vue l'information : IT WORKS! ? "; then
+if confirm "ATTENTION : Avez-vous vue l'information : Connecting to 127.0.0.1:80... connected. ? "; then
 
-echo "Enregistrement du code HTML IT WORKS"
+echo "Enregistrement du code connected."
 sleep "4"
 clear
 
@@ -95,7 +95,8 @@ cat ./verif_apache.html
 
 clear
 echo "Installation de PHP sur la Raspberry"
-sleep "4"
+sleep "4
+"
 clear
 sudo apt install php php-mbstring -y
 
@@ -140,17 +141,11 @@ clear
 echo "Verification du fonctionnement de MySQL »"
 sleep "4"
 clear
+echo "DROP USER 'root'@'localhost'; »"
+echo "CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';»"
+echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; »"
 
 sudo mysql --user=root
-
-clear
-echo "Verification du fonctionnement de MySQL »"
-sleep "4"
-clear
-
-DROP USER 'root'@'localhost';
-CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
 
 clear
 echo "MySQL INSTALLER »"
