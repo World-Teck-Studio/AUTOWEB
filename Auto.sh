@@ -40,7 +40,7 @@ echo "Création du serveur Apache"
 sleep "4"
 clear
 
-sudo apt install apache2
+sudo apt install apache2 -y
 clear
 
 echo "Création des dossiers"
