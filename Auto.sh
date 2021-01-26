@@ -57,7 +57,7 @@ echo "Vérification du fonctionnement du APACHE"
 sleep "4"
 clear
 
-wget -O check_apache.html http://127.0.0.1
+sudo wget -O check_apache.html http://127.0.0.1
 
 confirm()
 {
@@ -75,6 +75,10 @@ confirm()
 
 if confirm "ATTENTION : Avez-vous vue l'information : HTTP request sent, awaiting response... 200 OK ? "; then
 
+echo "INFORMATION : Avez-vous access: IP du raspberry/index.html"
+echo "Appuyer sur Entrée pour continuer..."
+read a
+
 clear
 echo "Enregistrement du code connected."
 sleep "4"
@@ -85,122 +89,6 @@ cat ./check_apache.html
 clear
 echo "Installation de APACHE TERMINER"
 sleep "4"
-clear
-
-else
-fi
-# ------------------------------------------------------------
-
-confirm()
-{
-    read -r -p "${1} [y/N] " response
-
-    case "$response" in
-        [yY][eE][sS]|[yY]) 
-            true
-            ;;
-        *)
-            false
-            ;;
-    esac
-}
-
-if confirm "INFORMATION : Vous les vous installer un server php ? "; then
-
-clear
-echo "Installation de PHP"
-sleep "4"
-clear
-
-sudo apt install php -y
-
-clear
-echo "Configuration de PHP"
-sleep "2"
-clear
-
-sudo rm index.html && echo "<?php echo "TEST WORLD-TECK STUDIO"; ?>" > /var/www/html/index.php
-
-sudo service apache2 restart
-
-confirm()
-{
-    read -r -p "${1} [y/N] " response
-
-    case "$response" in
-        [yY][eE][sS]|[yY]) 
-            true
-            ;;
-        *)
-            false
-            ;;
-    esac
-}
-
-
-if confirm "ATTENTION : Vérifier si le serveur php : IP DE VOTRE RASPBERRY/index.html "; then
-
-clear
-echo "Installation de PHP TERMINER"
-sleep "6"
-clear
-
-else
-
-fi
-
-fi
-# ------------------------------------------------------------
-
-clear
-echo "Installation du serveur MYSQL"
-sleep "6"
-clear
-
-sudo apt install mariadb-server php-mysql -y && sudo service apache2 restart
-
-# ------------------------------------------------------------
-
-
-clear
-echo "Configuration de l'utilisateur du serveur MYSQL"
-sleep "4"
-
-
-echo "-------------------------------------------------"
-sleep "4"
-
-
-echo "sudo mysql --user=root --password"
-sleep "4"
-
-
-echo "create user admin@localhost identified by 'your_password'"
-sleep "4"
-
-
-
-echo "create user admin@localhost identified by 'your_password'grant all privileges on *.* to admin@localhost;"
-sleep "4"
-
-
-
-echo "FLUSH PRIVILEGES;"
-sleep "4"
-
-
-
-echo "exit;"
-sleep "4"
-
-
-sudo mysql_secure_installation
-
-
-
-clear
-echo "INSTALLATION DU SQL TERMINER"
-sleep "6"
 clear
 
 else
@@ -240,18 +128,9 @@ sleep "4"
 sudo reboot
 
 fi
-
 # ------------------------------------------------------------
 
-clear
-echo "Installation du serveur PHP"
-sleep "6"
-clear
-
-sudo apt install phpmyadmin -y && sudo phpenmod mysqli && sudo service apache2 restart
-
-
-onfirm()
+confirm()
 {
     read -r -p "${1} [y/N] " response
 
@@ -265,7 +144,212 @@ onfirm()
     esac
 }
 
-if confirm "ATTENTION : RDV sur ip de votre raspberry/phpmyadmin : Voyer-vous la page phpmyadmin ? "; then
+if confirm "INFORMATION : Vous les vous installer le serveur PHP"; then
+
+clear
+echo "Installation de PHP"
+sleep "4"
+clear
+
+sudo apt install php -y
+
+clear
+echo "Configuration de PHP"
+sleep "2"
+clear
+
+sudo rm index.html && echo "<?php echo "TEST WORLD-TECK STUDIO"; ?>" > /var/www/html/index.php
+
+sudo service apache2 restart
+
+else
+fi
+# ------------------------------------------------------------
+
+confirm()
+{
+    read -r -p "${1} [y/N] " response
+
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+if confirm "INFORMATION : Avez-vous access: IP du raspberry/index.php "; then
+
+sudo rm index.php
+
+else
+
+clear
+echo "Vous avez rencontrez un probléme"
+sleep "2"
+
+
+echo "RDV sur la vidéo youtube : World-teck STUDIO"
+sleep "6"
+
+
+sleep "6"
+clear
+echo "Redemarrage dans 6"
+sleep "1"
+clear
+echo "Redemarrage dans 5"
+sleep "1"
+clear
+echo "Redemarrage dans 4"
+sleep "1"
+clear
+echo "Redemarrage dans 3"
+sleep "1"
+clear
+echo "Redemarrage dans 2"
+sleep "1"
+clear
+echo "Redemarrage dans 1"
+sleep "1"
+clear
+echo "...REBOOT..."
+sleep "4"
+
+sudo reboot
+
+
+fi
+
+
+# ------------------------------------------------------------
+
+clear
+echo "Installation du serveur MYSQL"
+sleep "6"
+clear
+
+sudo apt install mariadb-server php-mysql -y && sudo service apache2 restart
+
+# ------------------------------------------------------------
+
+clear
+echo "Configuration de la sécurisation du serveur MYSQL"
+sleep "4"
+echo "-------------------------------------------------"
+sleep "4"
+
+sudo mysql_secure_installation
+
+# ------------------------------------------------------------
+
+clear
+echo "INSTALLATION DU SQL TERMINER"
+sleep "4"
+clear
+
+# ------------------------------------------------------------
+
+clear
+echo "Installation de PHP MY ADMIN"
+sleep "6"
+clear
+
+sudo apt install phpmyadmin -y
+
+
+sudo phpenmod mysqli && sudo service apache2 restart
+
+
+
+confirm()
+{
+    read -r -p "${1} [y/N] " response
+
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+if confirm "INFORMATION : Avez-vous access: IP du raspberry/phpmyadmin"; then
+
+
+ls -lh /var/www/ && sudo chown -R pi:www-data /var/www/html/ && sudo chmod -R 770 /var/www/html/ && ls -lh /var/www/
+
+
+else
+
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+
+clear
+echo "INFORMATION : Avez-vous access: IP du raspberry/phpmyadmin"
+echo "Appuyer sur Entrée pour continuer..."
+read a
+
+fi
+
+
+confirm()
+{
+    read -r -p "${1} [y/N] " response
+
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+if confirm "INFORMATION : Vous les vous ajouter un autre utilisateur et base de donnée SQL "; then
+
+
+
+clear
+echo "Configuration de l'utilisateur du serveur MYSQL"
+sleep "4"
+echo "-------------------------------------------------"
+sleep "4"
+
+
+echo "sudo mysql --user=root --password"
+sleep "2"
+
+
+echo "create user admin@localhost identified by 'your_password'"
+sleep "2"
+
+
+
+echo "create user admin@localhost identified by 'your_password'grant all privileges on *.* to admin@localhost;"
+sleep "2"
+
+
+
+echo "FLUSH PRIVILEGES;"
+sleep "2"
+
+
+
+echo "exit;"
+sleep "2"
+
+
+sudo mysql --user=root --password"
+
+
+clear
+echo "INSTALLATION COMPLET"
+sleep "4"
 
 
 clear
@@ -294,7 +378,6 @@ sleep "1"
 clear
 echo "...REBOOT..."
 sleep "4"
-
 sudo reboot
 
 else
@@ -304,16 +387,10 @@ echo "Vous avez rencontrez un probléme"
 sleep "2"
 
 
-echo "Correction du probléme ..."
-sleep "6"
+echo "RDV sur la vidéo youtube : World-teck STUDIO"
+sleep "2"
 
-sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 
-clear
-
-echo "Merci d'avoir suivi le tuto..."
-echo "== YOUTUBE: world-teck STUDIO =="
-echo "== TWITCH: WorldTeck_studio_ =="
 sleep "6"
 clear
 echo "Redemarrage dans 6"
