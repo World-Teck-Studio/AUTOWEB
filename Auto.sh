@@ -36,44 +36,6 @@ clear
 
 
 clear
-echo "Installation de MYSQL"
-sleep "4"
-clear
-
-sudo apt install mariadb-server -y && sudo mysql_secure_installation
-
-# ------------------------------------------------------------
-
-
-clear
-echo "configuration de MYSQL"
-sleep "4"
-clear
-
-clear
-echo "CREATE DATABASE database;"
-sleep "2"
-
-echo "CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';"
-sleep "2"
-
-echo "GRANT ALL PRIVILEGES ON exampledb.* TO 'user'@'localhost';"
-sleep "2"
-
-echo "FLUSH PRIVILEGES;"
-sleep "2"
-
-
-sudo mysql -u root -p
-
-clear
-echo "Installation du SQL TERMINER"
-sleep "4"
-clear
-
-# ------------------------------------------------------------
-
-clear
 echo "Installation du server APACHE"
 sleep "4"
 clear
@@ -133,22 +95,52 @@ echo "Installation de PHP"
 sleep "4"
 clear
 
-sudo apt install php php-mbstring -y
+sudo apt install php -y
 
 clear
 echo "Configuration de PHP"
 sleep "2"
 clear
 
-sudo rm /var/www/html/index.html && echo "<?php phpinfo ();?>" > /var/www/html/index.php
+sudo rm /var/www/html/index.html && echo "<?php echo "TEST WORLD-TECK STUDIO"; ?>" > /var/www/html/index.php
+
+else
 
 clear
-echo "Installation de PHP TERMINER"
+echo "Vous avez rencontrez un probléme"
+sleep "2"
+
+
+echo "RDV sur la vidéo youtube : World-teck STUDIO"
+sleep "2"
+
+sleep "6"
+clear
+echo "Redemarrage dans 6"
+sleep "1"
+clear
+echo "Redemarrage dans 5"
+sleep "1"
+clear
+echo "Redemarrage dans 4"
+sleep "1"
+clear
+echo "Redemarrage dans 3"
+sleep "1"
+clear
+echo "Redemarrage dans 2"
+sleep "1"
+clear
+echo "Redemarrage dans 1"
+sleep "1"
+clear
+echo "...REBOOT..."
 sleep "4"
-clear
 
+sudo reboot
 
-# ------------------------------------------------------------
+fi
+
 confirm()
 {
     read -r -p "${1} [y/N] " response
@@ -163,62 +155,78 @@ confirm()
     esac
 }
 
-if confirm "ATTENTION : Vérifier si le sql fonctionne : IP DE VOTRE RASPBERRY/phpmyadmin "; then
+if confirm "ATTENTION : Vérifier si le serveur php : IP DE VOTRE RASPBERRY/index.html "; then
 
 
 clear
-echo "Redémarrage de tous les services"
-sleep "4"
-clear
-
-/etc/init.d/apache2 restart
-
-# ------------------------------------------------------------
-
-
-clear
-echo "Installation TERMINER"
+echo "Installation de PHP TERMINER"
 sleep "4"
 clear
 
 # ------------------------------------------------------------
 
 clear
-echo "Merci d'avoir suivi le tuto..."
-echo "== YOUTUBE: world-teck STUDIO =="
-echo "== TWITCH: WorldTeck_studio_ =="
+echo "Installation du serveur MYSQL"
 sleep "6"
 clear
-echo "Redemarrage dans 6"
-sleep "1"
+
+sudo apt install mariadb-server php-mysql -y && sudo service apache2 restart
+
+# ------------------------------------------------------------
+
+
 clear
-echo "Redemarrage dans 5"
-sleep "1"
-clear
-echo "Redemarrage dans 4"
-sleep "1"
-clear
-echo "Redemarrage dans 3"
-sleep "1"
-clear
-echo "Redemarrage dans 2"
-sleep "1"
-clear
-echo "Redemarrage dans 1"
-sleep "1"
-clear
-echo "...REBOOT..."
+echo "Configuration de l'utilisateur du serveur MYSQL"
 sleep "4"
-sudo reboot
+
+
+echo "-------------------------------------------------"
+sleep "4"
+
+
+echo "sudo mysql --user=root --password"
+sleep "4"
+
+
+echo "create user admin@localhost identified by 'your_password'"
+sleep "4"
+
+
+
+echo "create user admin@localhost identified by 'your_password'grant all privileges on *.* to admin@localhost;"
+sleep "4"
+
+
+
+echo "FLUSH PRIVILEGES;"
+sleep "4"
+
+
+
+echo "exit;"
+sleep "4"
+
+
+sudo mysql_secure_installation
+
+
+
+clear
+echo "INSTALLATION DU SQL TERMINER"
+sleep "6"
+clear
 
 else
 
-sudo systemctl reload apache2
-
 clear
-echo "Merci d'avoir suivi le tuto..."
-echo "== YOUTUBE: world-teck STUDIO =="
-echo "== TWITCH: WorldTeck_studio_ =="
+echo "Vous avez rencontrez un probléme"
+sleep "2"
+
+
+echo "RDV sur la vidéo youtube : World-teck STUDIO"
+sleep "2"
+
+
 sleep "6"
 clear
 echo "Redemarrage dans 6"
@@ -241,10 +249,108 @@ sleep "1"
 clear
 echo "...REBOOT..."
 sleep "4"
+
 sudo reboot
 
 fi
 
+# ------------------------------------------------------------
+
+clear
+echo "Installation du serveur PHP"
+sleep "6"
+clear
+
+sudo apt install phpmyadmin -y && sudo phpenmod mysqli && sudo service apache2 restart
+
+
+onfirm()
+{
+    read -r -p "${1} [y/N] " response
+
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+if confirm "ATTENTION : RDV sur ip de votre raspberry/phpmyadmin : Voyer-vous la page phpmyadmin ? "; then
+
+
+clear
+echo "Merci d'avoir suivi le tuto..."
+echo "== YOUTUBE: world-teck STUDIO =="
+echo "== TWITCH: WorldTeck_studio_ =="
+sleep "6"
+clear
+echo "Redemarrage dans 6"
+sleep "1"
+clear
+echo "Redemarrage dans 5"
+sleep "1"
+clear
+echo "Redemarrage dans 4"
+sleep "1"
+clear
+echo "Redemarrage dans 3"
+sleep "1"
+clear
+echo "Redemarrage dans 2"
+sleep "1"
+clear
+echo "Redemarrage dans 1"
+sleep "1"
+clear
+echo "...REBOOT..."
+sleep "4"
+
+sudo reboot
 
 else
+
+clear
+echo "Vous avez rencontrez un probléme"
+sleep "2"
+
+
+echo "Correction du probléme ..."
+sleep "6"
+
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+
+clear
+
+echo "Merci d'avoir suivi le tuto..."
+echo "== YOUTUBE: world-teck STUDIO =="
+echo "== TWITCH: WorldTeck_studio_ =="
+sleep "6"
+clear
+echo "Redemarrage dans 6"
+sleep "1"
+clear
+echo "Redemarrage dans 5"
+sleep "1"
+clear
+echo "Redemarrage dans 4"
+sleep "1"
+clear
+echo "Redemarrage dans 3"
+sleep "1"
+clear
+echo "Redemarrage dans 2"
+sleep "1"
+clear
+echo "Redemarrage dans 1"
+sleep "1"
+clear
+echo "...REBOOT..."
+sleep "4"
+
+sudo reboot
+
+
 fi
