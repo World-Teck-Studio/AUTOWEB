@@ -98,7 +98,7 @@ echo "Configurer PHP"
 sleep "4
 "
 clear
-sudo apt-get install php5 libapache2-mod-php5
+sudo apt-get install php5 libapache2-mod-php5 -y
 
 
 # ------------------------------------------------------------
@@ -146,7 +146,7 @@ echo "Installation de PHPMyAdmin »"
 sleep "4"
 clear
 
-sudo apt-get install phpmyadmin && sudo nano /etc/apache2/apache2.conf && /etc/init.d/apache2 restart
+sudo apt-get install phpmyadmin -y && sudo nano /etc/apache2/apache2.conf && /etc/init.d/apache2 restart
 
 confirm()
 {
