@@ -40,7 +40,7 @@ echo "Installation de MYSQL"
 sleep "4"
 clear
 
-sudo apt install mariadb-server && sudo mysql_secure_installation
+sudo apt install mariadb-server -y && sudo mysql_secure_installation
 
 # ------------------------------------------------------------
 
@@ -78,7 +78,7 @@ echo "Installation du server APACHE"
 sleep "4"
 clear
 
-sudo apt install apache2
+sudo apt install apache2 -y
 
 clear
 echo "Configuration du server APACHE"
@@ -133,7 +133,7 @@ echo "Installation de PHP"
 sleep "4"
 clear
 
-sudo apt install php php-mbstring
+sudo apt install php php-mbstring -y
 
 clear
 echo "Configuration de PHP"
