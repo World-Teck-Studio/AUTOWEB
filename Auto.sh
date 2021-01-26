@@ -32,41 +32,70 @@ sleep "4"
 clear
 
 
+# ------------------------------------------------------------
+
+
+clear
+echo "Installation de MYSQL"
+sleep "4"
+clear
+
+sudo apt install mariadb-server && sudo mysql_secure_installation
 
 # ------------------------------------------------------------
 
 
-echo "Création du serveur Apache"
+clear
+echo "configuration de MYSQL"
 sleep "4"
 clear
 
-sudo apt install apache2 -y
+clear
+echo "CREATE DATABASE database;"
+sleep "2"
+
+echo "CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';"
+sleep "2"
+
+echo "GRANT ALL PRIVILEGES ON exampledb.* TO 'user'@'localhost';"
+sleep "2"
+
+echo "FLUSH PRIVILEGES;"
+sleep "2"
+
+
+sudo mysql -u root -p
+
+clear
+echo "Installation du SQL TERMINER"
+sleep "4"
 clear
 
-echo "Création des dossiers"
-sleep "2"
+# ------------------------------------------------------------
+
+clear
+echo "Installation du server APACHE"
+sleep "4"
+clear
+
+sudo apt install apache2
+
+clear
+echo "Configuration du server APACHE"
+sleep "4"
 clear
 
 sudo chown -R pi:www-data /var/www/html/ && sudo chmod -R 770 /var/www/html/
 
+
+# ------------------------------------------------------------
+
 clear
-echo "Test du serveur"
+echo "Vérification du fonctionnement du APACHE"
 sleep "4"
 clear
 
-echo "Test dans 3"
-sleep "1"
-clear
-echo "Test dans 2"
-sleep "1"
-clear
-echo "Test dans 1"
-sleep "1"
-clear
-
-wget -O verif_apache.html http://127.0.0.1
-
-# ------------------------------------------------------------
+wget -O check_apache.html http://127.0.0.1
 
 confirm()
 {
@@ -84,82 +113,42 @@ confirm()
 
 if confirm "ATTENTION : Avez-vous vue l'information : Connecting to 127.0.0.1:80... connected. ? "; then
 
+clear
 echo "Enregistrement du code connected."
 sleep "4"
-clear
 
-cat ./verif_apache.html
+cat ./check_apache.html
 
-
-# ------------------------------------------------------------
 
 clear
-echo "Installation de PHP sur la Raspberry"
-sleep "4
-"
-clear
-sudo apt install php php-mbstring -y
-
-
-# ------------------------------------------------------------
-
-clear
-echo "Vérifier que PHP fonctionne"
+echo "Installation de APACHE TERMINER"
 sleep "4"
 clear
-
-sudo rm /var/www/html/index.html
-
 
 # ------------------------------------------------------------
 
 
 clear
-echo "Création du fichier « index.php »"
+echo "Installation de PHP"
 sleep "4"
 clear
 
-echo "<?php phpinfo(); ?>" > /var/www/html/index.php
-
+sudo apt install php php-mbstring
 
 clear
-echo "Serveur Apache et PHP termier »"
+echo "Configuration de PHP"
+sleep "2"
+clear
+
+sudo rm /var/www/html/index.html && echo "<?php phpinfo ();?>" > /var/www/html/index.php
+
+clear
+echo "Installation de PHP TERMINER"
 sleep "4"
 clear
 
 
-
-clear
-echo "Création d'Une base de données MySQL »"
-sleep "4"
-clear
-
-sudo apt install mariadb-server php-mysql -y
-
-
-clear
-echo "Verification du fonctionnement de MySQL »"
-sleep "4"
-clear
-echo "DROP USER 'root'@'localhost'; »"
-echo "CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';»"
-echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION; »"
-echo "------------------------------------------------------------------- »"
-sudo mysql --user=root
-
-clear
-echo "MySQL INSTALLER »"
-sleep "4"
-clear
-
-clear
-echo "Installation de PHPMyAdmin »"
-sleep "4"
-clear
-
-sudo apt install phpmyadmin -y && sudo phpenmod mysqli && sudo nano /etc/apache2/apache2.conf &&sudo /etc/init.d/apache2 restart  && sudo ln -s /usr/share/phpmyadmin /var/www/html
-
-
+# ------------------------------------------------------------
 confirm()
 {
     read -r -p "${1} [y/N] " response
@@ -174,27 +163,88 @@ confirm()
     esac
 }
 
-if confirm "Pour vérifier le bon fonctionnement « http://VOTRE IP DU RASPBERRY/phpmyadmin"; then
+if confirm "ATTENTION : Vérifier si le sql fonctionne : IP DE VOTRE RASPBERRY/phpmyadmin "; then
 
-echo "TERMINER"
+
+clear
+echo "Redémarrage de tous les services"
 sleep "4"
 clear
 
+/etc/init.d/apache2 restart
 
+# ------------------------------------------------------------
+
+
+clear
+echo "Installation TERMINER"
+sleep "4"
+clear
+
+# ------------------------------------------------------------
+
+clear
+echo "Merci d'avoir suivi le tuto..."
+echo "== YOUTUBE: world-teck STUDIO =="
+echo "== TWITCH: WorldTeck_studio_ =="
+sleep "6"
+clear
+echo "Redemarrage dans 6"
+sleep "1"
+clear
+echo "Redemarrage dans 5"
+sleep "1"
+clear
+echo "Redemarrage dans 4"
+sleep "1"
+clear
+echo "Redemarrage dans 3"
+sleep "1"
+clear
+echo "Redemarrage dans 2"
+sleep "1"
+clear
+echo "Redemarrage dans 1"
+sleep "1"
+clear
+echo "...REBOOT..."
+sleep "4"
+sudo reboot
 
 else
 
-echo "Vous avez un probléme. RDV sur https://www.youtube.com/    sur la chaine World-teck studio pour resoudre votre probléme"
+sudo systemctl reload apache2
 
+clear
+echo "Merci d'avoir suivi le tuto..."
+echo "== YOUTUBE: world-teck STUDIO =="
+echo "== TWITCH: WorldTeck_studio_ =="
+sleep "6"
+clear
+echo "Redemarrage dans 6"
+sleep "1"
+clear
+echo "Redemarrage dans 5"
+sleep "1"
+clear
+echo "Redemarrage dans 4"
+sleep "1"
+clear
+echo "Redemarrage dans 3"
+sleep "1"
+clear
+echo "Redemarrage dans 2"
+sleep "1"
+clear
+echo "Redemarrage dans 1"
+sleep "1"
+clear
+echo "...REBOOT..."
+sleep "4"
+sudo reboot
 
 fi
 
 
-
-
 else
-
-echo "Vous avez un probléme. RDV sur https://www.youtube.com/    sur la chaine World-teck studio pour resoudre votre probléme"
-
-
 fi
