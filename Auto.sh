@@ -75,7 +75,7 @@ confirm()
 
 if confirm "ATTENTION : Avez-vous vue l'information : HTTP request sent, awaiting response... 200 OK ? "; then
 
-mv ~/AUTOWEB/index.html /var/www/html/
+sudo rm -fv index.html && sudo mv ~/AUTOWEB/index.html /var/www/html/
 
 clear
 {
@@ -212,7 +212,7 @@ echo "Configuration de PHP"
 sleep "2"
 clear
 
-sudo rm index.html && mv ~/AUTOWEB/index.php /var/www/html/
+sudo rm -fv index.html && sudo mv ~/AUTOWEB/index.php /var/www/html/
 
 sudo service apache2 restart
 
