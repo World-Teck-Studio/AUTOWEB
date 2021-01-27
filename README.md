@@ -1,4 +1,7 @@
 # AUTOWEB
+VERSION TEST 1.7 --> 1.8
+-- Remove -- OK
+-- Correction des bugs
 
 VERSION TEST 1.6
 -- version auto y/N V5 
