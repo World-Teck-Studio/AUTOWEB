@@ -234,8 +234,7 @@ confirm()
 
 if confirm "INFORMATION : Avez-vous access: IP du raspberry/index.php "; then
 
-sudo rm index.php
-
+echo "OK"
 else
 
 clear
