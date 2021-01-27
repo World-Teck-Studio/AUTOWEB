@@ -75,7 +75,7 @@ confirm()
 
 if confirm "ATTENTION : Avez-vous vue l'information : HTTP request sent, awaiting response... 200 OK ? "; then
 
-echo "TEST DU FICHIER HTML : WORLD-TECK STUDIO ---> OK<br>" > /var/www/html/index.html
+mv ~/AUTOWEB/index.html /var/www/html/
 
 clear
 {
