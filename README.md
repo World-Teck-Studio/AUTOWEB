@@ -1,5 +1,10 @@
 # AUTOWEB
 
+VERSION TEST 1.6
+-- version auto y/N V5 
+-- Correction des bugs
+
+
 VERSION TEST 1.5
 -- version auto y/N V4 
 -- Correction des bugs
