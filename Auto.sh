@@ -75,7 +75,7 @@ confirm()
 
 if confirm "ATTENTION : Avez-vous vue l'information : HTTP request sent, awaiting response... 200 OK ? "; then
 
-sudo rm index.html && echo "TEST DU FICHIER HTML : WORLD-TECK STUDIO ---> OK<br>" > /var/www/html/index.html
+echo "TEST DU FICHIER HTML : WORLD-TECK STUDIO ---> OK<br>" > /var/www/html/index.html
 
 clear
 {
