@@ -212,10 +212,10 @@ echo "Configuration de PHP"
 sleep "2"
 clear
 
-sudo rm -fv index.html && sudo mv ~/AUTOWEB/index.php /var/www/html/
+sudo mv ~/AUTOWEB/index.php /var/www/html/
 
 sudo service apache2 restart
-
+clear
 
 {
 confirm()
