@@ -1,4 +1,8 @@
 # AUTOWEB
+VERSION TEST 1.9
+-- rajout de clarter sur les informations
+
+
 VERSION TEST 1.7 --> 1.8
 -- Remove -- OK
 -- Correction des bugs
