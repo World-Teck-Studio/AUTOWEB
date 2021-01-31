@@ -364,7 +364,7 @@ confirm()
             ;;
     esac
 }
-
+clear
 if confirm "INFORMATION : Vous les vous ajouter un autre utilisateur et base de donnée SQL "; then
 
 
