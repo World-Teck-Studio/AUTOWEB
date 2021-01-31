@@ -5,7 +5,7 @@ sleep "2"
 echo "== SCRIPT DE WORLD-TECK STUDIO == "
 echo "== YOUTUBE: world-teck STUDIO =="
 echo "== TWITCH: WorldTeck_studio_ =="
-echo "== Version du script 1.0 AUTOMATIQUE =="
+echo "== Version du script 2 AUTOMATIQUE =="
 sleep "6"
 clear
 
@@ -336,7 +336,7 @@ confirm()
             ;;
     esac
 }
-
+clear
 if confirm "INFORMATION : Avez-vous access: IP du raspberry/phpmyadmin"; then
 
 
