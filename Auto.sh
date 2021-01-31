@@ -373,9 +373,7 @@ clear
 echo "Configuration de l'utilisateur du serveur MYSQL"
 sleep "4"
 echo "-------------------------------------------------"
-sleep "4"
-
-sudo mysql --user=root --password
+sleep "2"
 
 
 echo "create user admin@localhost identified by 'your_password';"
@@ -395,6 +393,8 @@ sleep "2"
 
 echo "exit;"
 sleep "2"
+
+sudo mysql --user=root --password
 
 {
 confirm()
