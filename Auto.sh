@@ -365,7 +365,7 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION : Vous les vous ajouter un autre utilisateur et base de donnée SQL "; then
+if confirm "INFORMATION : Vous les vous ajouter un utilisateur SQL "; then
 
 
 
@@ -410,7 +410,7 @@ confirm()
             ;;
     esac
 }
-
+clear
 if confirm "INFORMATION : Avez-vous access a la base de donnée SQL "; then
 clear
 echo "INSTALLATION COMPLET"
