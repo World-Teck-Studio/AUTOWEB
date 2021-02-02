@@ -1,21 +1,18 @@
 #!/bin/bash
 
 clear
-sleep "2"
+sleep "1"
 echo "== SCRIPT DE WORLD-TECK STUDIO == "
-echo "== YOUTUBE: world-teck STUDIO =="
+sleep "1"
+echo "== YOUTUBE: World-teck STUDIO =="
+sleep "1"
 echo "== TWITCH: WorldTeck_studio_ =="
-echo "== Version du script 2.0 AUTOMATIQUE =="
-sleep "6"
+sleep "1"
+echo "== Script : Serveur HTTP/PHP + SQL AUTO =="
+sleep "1"
+echo "== Version du script 2.0 (FINAL) =="
+sleep "8"
 clear
-
-# ------------------------------------------------------------
-
-
-echo "Insalltation de serveur WEB"
-sleep "4"
-clear
-
 
 # ------------------------------------------------------------
 
@@ -35,15 +32,14 @@ clear
 # ------------------------------------------------------------
 
 
-clear
-echo "Installation du server APACHE"
+echo "Installation du server APACHE + HTML"
 sleep "4"
 clear
 
 sudo apt install apache2 -y
 
 clear
-echo "Configuration du server APACHE"
+echo "Configuration du server APACHE + HTML"
 sleep "4"
 clear
 
@@ -93,7 +89,7 @@ confirm()
     esac
 }
 
-if confirm "INFORMATION : Avez-vous access: IP du raspberry/index.html ? "; then
+if confirm "INFORMATION : Avez-vous access a la page HTML via : IP de votre raspberry/index.html ? "; then
 
 clear
 echo "Enregistrement."
@@ -101,7 +97,7 @@ sleep "4"
 cat ./check_apache.html
 
 clear
-echo "Installation de APACHE TERMINER"
+echo "Installation du serveur APACHE et HTML 'TERMINER'"
 sleep "4"
 clear
 
@@ -233,7 +229,7 @@ confirm()
     esac
 }
 
-if confirm "INFORMATION : Avez-vous access: IP du raspberry/index.php "; then
+if confirm "INFORMATION : Avez-vous access a la page PHP via : IP du raspberry/index.php "; then
 
 echo "OK"
 else
@@ -279,7 +275,7 @@ fi
 
 
 else
-echo "Configuration de PHP"
+echo "Installation du serveur MYSQL"
 fi
 }
 
@@ -295,7 +291,7 @@ sudo apt install mariadb-server php-mysql -y && sudo service apache2 restart
 # ------------------------------------------------------------
 
 clear
-echo "Configuration de la sécurisation du serveur MYSQL"
+echo "Configuration de la sécurisation du serveur 'SQL'"
 sleep "4"
 echo "-------------------------------------------------"
 sleep "4"
@@ -337,7 +333,7 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION : Avez-vous access: IP du raspberry/phpmyadmin"; then
+if confirm "INFORMATION :  Avez-vous access a la page phpmyadmin via : IP du raspberry/phpmyadmin"; then
 
 
 ls -lh /var/www/ && sudo chown -R pi:www-data /var/www/html/ && sudo chmod -R 770 /var/www/html/ && ls -lh /var/www/
@@ -365,7 +361,7 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION : Vous les vous ajouter un utilisateur SQL "; then
+if confirm "INFORMATION : Vous les vous ajouter un utilisateur MYSQL "; then
 
 
 
@@ -411,7 +407,7 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION : Avez-vous access a la base de donnée SQL "; then
+if confirm "INFORMATION : Avez-vous access a la base de donnée 'MYSQL' "; then
 clear
 echo "INSTALLATION COMPLET"
 sleep "4"
