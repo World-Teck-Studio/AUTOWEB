@@ -8,9 +8,11 @@ echo "== YOUTUBE: World-teck STUDIO =="
 sleep "1"
 echo "== TWITCH: WorldTeck_studio_ =="
 sleep "1"
+echo "------------------------------"
 echo "== Script : Serveur HTTP/PHP + SQL AUTO =="
 sleep "1"
 echo "== Version du script 2.0 (FINAL) =="
+echo "------------------------------"
 sleep "8"
 clear
 
