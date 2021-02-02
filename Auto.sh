@@ -19,7 +19,7 @@ clear
 # ------------------------------------------------------------
 
 
-echo "Mise à jour du raspberry et de Raspbian"
+echo "Mise à jour du Raspberry et de Raspbian"
 sleep "4"
 clear
 
@@ -34,14 +34,14 @@ clear
 # ------------------------------------------------------------
 
 
-echo "Installation du server APACHE + HTML"
+echo "Installation du serveur APACHE + HTML"
 sleep "4"
 clear
 
 sudo apt install apache2 -y
 
 clear
-echo "Configuration du server APACHE + HTML"
+echo "Configuration du serveur 'APACHE + HTML'"
 sleep "4"
 clear
 
@@ -51,7 +51,7 @@ cd /var/www/html && /var/www/html
 # ------------------------------------------------------------
 
 clear
-echo "Vérification du fonctionnement du APACHE"
+echo "Vérification du fonctionnement du serveur 'APACHE + HTML'"
 sleep "4"
 clear
 
@@ -71,7 +71,7 @@ confirm()
     esac
 }
 
-if confirm "ATTENTION : Avez-vous vue l'information : HTTP request sent, awaiting response... 200 OK ? "; then
+if confirm "ATTENTION : Avez-vous vu l'information suivante : HTTP request sent, awaiting response... 200 OK ? "; then
 
 sudo rm -fv index.html && sudo mv ~/AUTOWEB/index.html /var/www/html/
 
@@ -91,7 +91,7 @@ confirm()
     esac
 }
 
-if confirm "INFORMATION : Avez-vous access a la page HTML via : IP de votre raspberry/index.html ? "; then
+if confirm "INFORMATION : Avez-vous access à la page HTML via : IP de votre raspberry/index.html ? "; then
 
 clear
 echo "Enregistrement."
@@ -106,7 +106,7 @@ clear
 else
 
 clear
-echo "Vous avez rencontrez un probléme"
+echo "Vous avez rencontré un problème"
 sleep "2"
 
 
@@ -116,22 +116,22 @@ sleep "2"
 
 sleep "6"
 clear
-echo "Redemarrage dans 6"
+echo "Redémarrage dans 6"
 sleep "1"
 clear
-echo "Redemarrage dans 5"
+echo "Redémarrage dans 5"
 sleep "1"
 clear
-echo "Redemarrage dans 4"
+echo "Redémarrage dans 4"
 sleep "1"
 clear
-echo "Redemarrage dans 3"
+echo "Redémarrage dans 3"
 sleep "1"
 clear
-echo "Redemarrage dans 2"
+echo "Redémarrage dans 2"
 sleep "1"
 clear
-echo "Redemarrage dans 1"
+echo "Redémarrage dans 1"
 sleep "1"
 clear
 echo "...REBOOT..."
@@ -145,7 +145,7 @@ fi
 else
 
 clear
-echo "Vous avez rencontrez un probléme"
+echo "Vous avez rencontré un problème"
 sleep "2"
 
 
@@ -155,22 +155,22 @@ sleep "2"
 
 sleep "6"
 clear
-echo "Redemarrage dans 6"
+echo "Redémarrage dans 6"
 sleep "1"
 clear
-echo "Redemarrage dans 5"
+echo "Redémarrage dans 5"
 sleep "1"
 clear
-echo "Redemarrage dans 4"
+echo "Redémarrage dans 4"
 sleep "1"
 clear
-echo "Redemarrage dans 3"
+echo "Redémarrage dans 3"
 sleep "1"
 clear
-echo "Redemarrage dans 2"
+echo "Redémarrage dans 2"
 sleep "1"
 clear
-echo "Redemarrage dans 1"
+echo "Redémarrage dans 1"
 sleep "1"
 clear
 echo "...REBOOT..."
@@ -197,17 +197,17 @@ confirm()
     esac
 }
 
-if confirm "INFORMATION : Vous les vous installer le serveur PHP"; then
+if confirm "INFORMATION : Vous les vous installez le serveur PHP"; then
 
 clear
-echo "Installation de PHP"
+echo "Installation du serverur 'PHP'"
 sleep "4"
 clear
 
 sudo apt install php -y
 
 clear
-echo "Configuration de PHP"
+echo "Configuration du serveur PHP"
 sleep "2"
 clear
 
@@ -231,13 +231,13 @@ confirm()
     esac
 }
 
-if confirm "INFORMATION : Avez-vous access a la page PHP via : IP du raspberry/index.php "; then
+if confirm "INFORMATION : Avez-vous access à la page PHP via : IP du raspberry/index.php "; then
 
 echo "OK"
 else
 
 clear
-echo "Vous avez rencontrez un probléme"
+echo "Vous avez rencontré un problème"
 sleep "2"
 
 
@@ -247,22 +247,22 @@ sleep "6"
 
 sleep "6"
 clear
-echo "Redemarrage dans 6"
+echo "Redémarrage dans 6"
 sleep "1"
 clear
-echo "Redemarrage dans 5"
+echo "Redémarrage dans 5"
 sleep "1"
 clear
-echo "Redemarrage dans 4"
+echo "Redémarrage dans 4"
 sleep "1"
 clear
-echo "Redemarrage dans 3"
+echo "Redémarrage dans 3"
 sleep "1"
 clear
-echo "Redemarrage dans 2"
+echo "Redémarrage dans 2"
 sleep "1"
 clear
-echo "Redemarrage dans 1"
+echo "Redémarrage dans 1"
 sleep "1"
 clear
 echo "...REBOOT..."
@@ -303,14 +303,14 @@ sudo mysql_secure_installation
 # ------------------------------------------------------------
 
 clear
-echo "INSTALLATION DU SQL TERMINER"
+echo "Installation du serveur 'SQL' TERMINER"
 sleep "4"
 clear
 
 # ------------------------------------------------------------
 
 clear
-echo "Installation de PHP MY ADMIN"
+echo "Installation de 'Phpmyadmin'"
 sleep "6"
 clear
 
@@ -335,7 +335,7 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION :  Avez-vous access a la page phpmyadmin via : IP du raspberry/phpmyadmin"; then
+if confirm "INFORMATION :  Avez-vous access à la page Phpmyadmin via : IP du raspberry/phpmyadmin"; then
 
 
 ls -lh /var/www/ && sudo chown -R pi:www-data /var/www/html/ && sudo chmod -R 770 /var/www/html/ && ls -lh /var/www/
@@ -363,7 +363,7 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION : Vous les vous ajouter un utilisateur MYSQL "; then
+if confirm "INFORMATION : Vous les vous ajoutez un utilisateur MYSQL "; then
 
 
 
@@ -409,9 +409,9 @@ confirm()
     esac
 }
 clear
-if confirm "INFORMATION : Avez-vous access a la base de donnée 'MYSQL' "; then
+if confirm "INFORMATION : Avez-vous access à la base de données 'MYSQL' "; then
 clear
-echo "INSTALLATION COMPLET"
+echo "Félicitation installation COMPLÈTE"
 sleep "4"
 
 
@@ -421,22 +421,22 @@ echo "== YOUTUBE: world-teck STUDIO =="
 echo "== TWITCH: WorldTeck_studio_ =="
 sleep "6"
 clear
-echo "Redemarrage dans 6"
+echo "Redémarrage dans 6"
 sleep "1"
 clear
-echo "Redemarrage dans 5"
+echo "Redémarrage dans 5"
 sleep "1"
 clear
-echo "Redemarrage dans 4"
+echo "Redémarrage dans 4"
 sleep "1"
 clear
-echo "Redemarrage dans 3"
+echo "Redémarrage dans 3"
 sleep "1"
 clear
-echo "Redemarrage dans 2"
+echo "Redémarrage dans 2"
 sleep "1"
 clear
-echo "Redemarrage dans 1"
+echo "Redémarrage dans 1"
 sleep "1"
 clear
 echo "...REBOOT..."
@@ -445,7 +445,7 @@ sudo reboot
 
 else
 clear
-echo "Vous avez rencontrez un probléme"
+echo "Vous avez rencontré un problème"
 sleep "2"
 
 
@@ -455,22 +455,22 @@ sleep "2"
 
 sleep "6"
 clear
-echo "Redemarrage dans 6"
+echo "Redémarrage dans 6"
 sleep "1"
 clear
-echo "Redemarrage dans 5"
+echo "Redémarrage dans 5"
 sleep "1"
 clear
-echo "Redemarrage dans 4"
+echo "Redémarrage dans 4"
 sleep "1"
 clear
-echo "Redemarrage dans 3"
+echo "Redémarrage dans 3"
 sleep "1"
 clear
-echo "Redemarrage dans 2"
+echo "Redémarrage dans 2"
 sleep "1"
 clear
-echo "Redemarrage dans 1"
+echo "Redémarrage dans 1"
 sleep "1"
 clear
 echo "...REBOOT..."
@@ -494,22 +494,22 @@ echo "== YOUTUBE: world-teck STUDIO =="
 echo "== TWITCH: WorldTeck_studio_ =="
 sleep "6"
 clear
-echo "Redemarrage dans 6"
+echo "Redémarrage dans 6"
 sleep "1"
 clear
-echo "Redemarrage dans 5"
+echo "Redémarrage dans 5"
 sleep "1"
 clear
-echo "Redemarrage dans 4"
+echo "Redémarrage dans 4"
 sleep "1"
 clear
-echo "Redemarrage dans 3"
+echo "Redémarrage dans 3"
 sleep "1"
 clear
-echo "Redemarrage dans 2"
+echo "Redémarrage dans 2"
 sleep "1"
 clear
-echo "Redemarrage dans 1"
+echo "Redémarrage dans 1"
 sleep "1"
 clear
 echo "...REBOOT..."
