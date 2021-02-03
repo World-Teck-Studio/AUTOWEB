@@ -23,7 +23,7 @@ echo "Mise à jour du Raspberry et de Raspbian"
 sleep "4"
 clear
 
-sudo apt update -y && sudo apt upgrade -y && sudo apt update -y
+sudo apt update -y && sudo apt upgrade -y
 
 clear
 echo "Mise à jour TERMINER"
