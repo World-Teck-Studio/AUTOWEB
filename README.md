@@ -1,6 +1,6 @@
 # AUTOWEB
 VERSION TEST 2.0 FINAL
--- Correction de l'hortographe
+-- Correction de l'orthographe
 
 
 VERSION TEST 1.9
